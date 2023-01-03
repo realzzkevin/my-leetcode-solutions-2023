@@ -18,20 +18,12 @@ public class Solution {
         }
         while(index <s.length() && Character.isDigit(s.charAt(index))) {
             int temp = Character.getNumericValue(s.charAt(index));
-            if(sign >= 0) {
-                if(result > (max/10) || (result == (max/10) && temp > (max % 10))){
-                    return max;
-                } else {
-                    result = (result * 10 + temp);
-                }
-
-            } else {
-                if( (sign * result) < (min/10) || ((sign * result) == (min/10) && (sign * temp) < (min % 10))){
-                    return min;
-                } else {
-                    result = (result * 10 + temp);
-                }
+            if(sign >= 0 && (result > (max/10) || (result == (max/10) && temp > (max % 10)))) {
+                return max;
+            } else if( (sign * result) < (min/10) || ((sign * result) == (min/10) && (sign * temp) < (min % 10))) {
+                return min;
             }
+            result = (result * 10) + temp;
 
             index++;
         }
