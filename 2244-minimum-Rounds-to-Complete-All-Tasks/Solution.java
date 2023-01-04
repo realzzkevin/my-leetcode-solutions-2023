@@ -2,12 +2,7 @@ public class Solution {
     public int minimumRounds(int[] tasks) {
         Map<Integer, Integer> map = new HashMap<>();
         for(int i = 0; i < tasks.length; i++) {
-            if(map.containsKey(tasks[i])) {
-                map.put(tasks[i], map.get(tasks[i])+1);
-            } else {
-                map.put(tasks[i], 1);
-            }
-            //map.put(tasks[i], map.getOrDefault(tasks[i], 0) + 1);
+            map.put(tasks[i], map.getOrDefault(tasks[i], 0) + 1);
         }
         int minRounds = 0;
         List<Integer> list = new ArrayList<>(map.values());
