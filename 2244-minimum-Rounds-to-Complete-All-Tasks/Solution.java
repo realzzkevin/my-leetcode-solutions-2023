@@ -23,25 +23,11 @@ public class Solution {
         if(task == 1) {
             return -1;
         }
-        // if(task == 2 || task ==3) {
-        //     return 1;
-        // }
-
-        int n = task/3;
-        int m = task%3;
-
-        if(m == 0) {
-            return n;
-        } else if (m == 2) {
-            return n+1;
-        } else if (m == 1) {
-            if(task>=4) {
-                return n+1;
-            } else {
-                return -1;
-            }
+        if( task % 3 == 0) {
+            return task / 3;
+        } else {
+            return (task / 3)+1;
         }
 
-        return n;
     }
 }
