@@ -21,4 +21,27 @@ public class Solution {
         }
         return -1;
     }
+
+    /*
+        //One pass solution base on leetcode official solution
+        public int canCompleteCircuit(int[] gas, int[] cost) {
+        int sum = 0;
+        int start = 0;
+        int gasInTank = 0;
+        for(int i = 0; i < gas.length; i++) {
+            sum += gas[i] - cost[i];
+            gasInTank += gas[i] - cost[i];
+            if(gasInTank < 0) {
+                gasInTank = 0;
+                start = i+1;
+            }
+        }
+
+        if(sum >= 0) {
+            return start;
+        } else {
+            return -1;
+        }
+    }
+     */
 }
