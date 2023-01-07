@@ -8,18 +8,16 @@ public class Solution {
         }
 
         if(sum >= 0) {
+            int start = 0;
+            int gasInTank = 0;
             for(int i = 0; i < diff.length; i++) {
-                int next = 0;
-                for(int r = i; r < diff.length; r++) {
-                    next += diff[r];
-                    if(next < 0) {
-                        break;
-                    }
-                }
-                if(next >= 0) {
-                    return i;
+                gasInTank += diff[i];
+                if(gasInTank < 0) {
+                    gasInTank = 0;
+                    start = i+1;
                 }
             }
+            return start;
         }
         return -1;
     }
