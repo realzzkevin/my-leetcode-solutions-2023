@@ -12,7 +12,7 @@ class Solution {
                 int dx = points[j][0] - points[i][0];
                 int dy = points[j][1] - points[i][1];
                 if(dx == 0) {
-                    dy = Math.abs(dy);
+                    dy = Math.abs(dy);'[;'
                 }
                 delta = Math.atan2(dy, dx);
                 map.put(delta, map.getOrDefault(delta, 1)+1);
