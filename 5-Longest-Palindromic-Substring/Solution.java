@@ -3,18 +3,21 @@ class Solution {
         if(s.length() == 1) {
             return s;
         }
-        String ans = "";
+        int[] indexs = new int[2];
         for(int i = 0; i < s.length(); i++) {
-            String temp = findPalidrome(s, i);
-            ans = ans.length() > temp.length() ? ans : temp;
+            int[] temp = findPalidrome(s, i);
+            if((temp[1] - temp[0]) > (indexs[1] - indexs[0])){
+                indexs[0] = temp[0];
+                indexs[1] = temp[1];
+            }
         }
-
-        return ans;
+        return s.substring(indexs[0], indexs[1]);
     }
 
-    public String findPalidrome(String s, int center) {
+    public int[] findPalidrome(String s, int center) {
         int left = center;
         int right = center;
+        int[] returnval = new int[2];
 
         while(left >= 0 && right < s.length()){
             if(s.charAt(left) != s.charAt(right)){
@@ -23,7 +26,8 @@ class Solution {
             left--;
             right++;
         }
-        String str1 = s.substring(left+1, right);
+        returnval[0] = left+1;
+        returnval[1] = right;
 
         right = center + 1;
         if(right < s.length() && s.charAt(center) == s.charAt(right)) {
@@ -35,12 +39,13 @@ class Solution {
                 left--;
                 right++;
             }
-            String str2 = s.substring(left+1, right);
-            return str1.length() > str2.length() ? str1 : str2;
+
+            if((right - (left + 1)) > (returnval[1] - returnval[0])){
+                returnval[0] = left + 1;
+                returnval[1] = right;
+
+            }
         }
-
-        return str1;
-
-
+        return returnval;
     }
 }
