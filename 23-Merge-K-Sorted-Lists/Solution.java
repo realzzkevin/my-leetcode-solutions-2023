@@ -14,7 +14,6 @@ class Solution {
         Collections.sort(aList);
         ListNode head = new ListNode(0);
         ListNode cur = head;
-
         for(Integer n : aList){
             cur.next = new ListNode(n);
             cur = cur.next;
