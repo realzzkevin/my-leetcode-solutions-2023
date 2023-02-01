@@ -11,7 +11,6 @@ public class Solution {
         int n1 = str1.length();
         int n2 = str2.length();
         int div = 1;
-
         while(div <= n2) {
             if(n2 % div == 0) {
                 int a = n2/div;
@@ -21,18 +20,13 @@ public class Solution {
             }
             div++;
         }
-
-        return "";
-
-        
+        return "";        
     }
 
     public boolean helper(int n, String a, String b) {
         int start = 0;
         int end = n;
         String subStr = b.substring(start, end);
-
-
         while(end <= a.length()){
             if(end <= b.length() && !subStr.equals(b.substring(start, end))){
                 return false;
@@ -43,7 +37,6 @@ public class Solution {
             start += n;
             end += n;
         }
-
         return true;
     }
 	
