@@ -17,6 +17,7 @@ class Solution {
     public int longestZigZag(TreeNode root) {
         dfs(root, false, 0);
         dfs(root, true, 0);
+        1701  lee
         return pathLength;
     }
 }
